@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private Button b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13,b14,b15,b16;
     private float num1,num2,addresult,subresult,multiresult;
     private boolean add=false,sub=false,multi=false;
+    private int count=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 add=true;
                 multi=false;
                 sub=false;
-                buttonDisable();
+                b4.setEnabled(false);
             }
         });
         b5.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 sub=true;
                 add=false;
                 multi=false;
-                buttonDisable();
+                b8.setEnabled(false);
             }
         });
         b9.setOnClickListener(new View.OnClickListener() {
@@ -129,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 multi=true;
                 add=false;
                 sub=false;
-                buttonDisable();
+                b12.setEnabled(false);
             }
         });
         b13.setOnClickListener(new View.OnClickListener() {
@@ -151,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
                     multiresult = num1 * num2;
                     tv.setText(String.valueOf(multiresult));
                 }
-                buttonDisable();
+                b13.setEnabled(false);
 
             }
         });
@@ -160,6 +161,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 editText1.setText("");
                 tv.setText("");
+                b4.setEnabled(true);
+                b8.setEnabled(true);
+                b12.setEnabled(true);
+                b13.setEnabled(true);
+                b16.setEnabled(true);
             }
         });
         b15.setOnClickListener(new View.OnClickListener() {
@@ -180,19 +186,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 editText1.setText(editText1.getText()+".");
-                buttonDisable();
+                b16.setEnabled(false);
             }
         });
 
     }
 
-    private void buttonDisable()
-    {
-        b4.setEnabled(false);
-        b8.setEnabled(false);
-        b12.setEnabled(false);
-        b13.setEnabled(false);
-        b16.setEnabled(false);
-    }
 }
 
